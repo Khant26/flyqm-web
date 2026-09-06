@@ -1,0 +1,39 @@
+name: Backend CI
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      PYTHONPATH: backend
+      DATABASE_URL: sqlite:///./test.db
+      SECRET_KEY: ci-only-secret-key
+      TICKET_API_KEY: ci-only-api-key
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: backend/requirements.txt
+
+      - name: Install dependencies
+        run: python -m pip install -r backend/requirements.txt
+
+      - name: Compile source
+        run: python -m compileall -q backend/app backend/tests
+
+      - name: Run tests
+        run: python -m unittest discover -s backend/tests -v

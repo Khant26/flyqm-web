@@ -41,10 +41,18 @@ pip install -r backend/requirements.txt
 3. Run the backend:
 
 ```bash
-uvicorn app.main:app --reload --port 8000 --app-dir backend/app
+uvicorn app.main:app --reload --port 8000 --app-dir backend
 ```
 
-API docs are available as markdown in `docs/` (this project also exposes OpenAPI at runtime at `/docs` when running the server).
+API docs are available as Markdown and OpenAPI artifacts in `docs/`. The running service also exposes interactive documentation at `/docs`.
 
-If you want, I can also generate an OpenAPI JSON or a Postman collection.
+## Verification
+
+Run the isolated unit suite without PostgreSQL or external API access:
+
+```bash
+PYTHONPATH=backend DATABASE_URL=sqlite:///./test.db SECRET_KEY=test TICKET_API_KEY=test python -m unittest discover -s backend/tests -v
+```
+
+The suite covers authentication security, schema validation, JWT handling, and the one-way/round-trip pricing engine. GitHub Actions also compiles the Python source and runs these tests on pushes and pull requests.
 # IWM_Airline_ticket
