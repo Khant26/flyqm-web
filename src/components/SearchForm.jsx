@@ -117,6 +117,7 @@ const SearchForm = ({
 
   useEffect(() => {
     if (!initialValues) return;
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- controlled defaults may change between booking legs
     setSearchData(makeInitialSearchData(initialValues));
   }, [initialValues]);
 

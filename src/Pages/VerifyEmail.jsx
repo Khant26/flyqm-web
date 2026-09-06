@@ -12,6 +12,7 @@ export default function VerifyEmailPage() {
     const token = searchParams.get("token");
 
     if (!token) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect -- missing tokens fail immediately
       setStatus("error");
       setMessage("Verification token is missing.");
       return;

@@ -3,7 +3,6 @@ import { getBanners } from "../utils/api";
 
 function AdvertisementSection() {
   const [banners, setBanners] = useState([]);
-  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchBanners = async () => {
@@ -22,8 +21,6 @@ function AdvertisementSection() {
         }
       } catch (error) {
         console.error("Failed to fetch banners:", error);
-      } finally {
-        setLoading(false);
       }
     };
 

@@ -89,7 +89,6 @@ const transformFlightData = (flights) => {
 const FlightSearchPage = ({
   initialTripType = "round-trip",
   pageTitle = "Available Flights",
-  showSelectedPreviousFlight = false,
 }) => {
   const location = useLocation();
   const navigate = useNavigate();
@@ -150,6 +149,7 @@ const FlightSearchPage = ({
     if (state.searchData) {
       handleSearch(state.searchData);
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps -- navigation state triggers the initial search
   }, [location.key]);
 
   const handleSelectFlight = (flight) => {

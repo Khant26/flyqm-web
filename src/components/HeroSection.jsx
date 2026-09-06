@@ -5,7 +5,6 @@ const HeroSection = () => {
   const [backgroundImage, setBackgroundImage] = useState(
     "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1600&q=80"
   );
-  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchBackground = async () => {
@@ -16,8 +15,6 @@ const HeroSection = () => {
         }
       } catch (error) {
         console.error("Failed to fetch background:", error);
-      } finally {
-        setLoading(false);
       }
     };
 

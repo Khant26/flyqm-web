@@ -53,7 +53,7 @@ export default function BookingView() {
         setTicketStatusLoading(true);
         const statusData = await getTicketStatus(bookingId);
         setTicketStatus(statusData || null);
-      } catch (err) {
+      } catch {
         setTicketStatus(null);
       } finally {
         setTicketStatusLoading(false);
@@ -233,7 +233,7 @@ export default function BookingView() {
         type: "success",
         message: "Ticket downloaded successfully.",
       });
-    } catch (err) {
+    } catch {
       setNotification({
         type: "error",
         message: "Failed to download ticket.",

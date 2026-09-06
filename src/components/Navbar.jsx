@@ -4,18 +4,15 @@ import SignIn from "../Pages/SignIn";
 
 const NavBar = () => {
   const [isLoginOpen, setIsLoginOpen] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(() => Boolean(localStorage.getItem("authToken")));
   const [successMessage, setSuccessMessage] = useState("");
   const location = useLocation();
 
-  useEffect(() => {
-    const token = localStorage.getItem("authToken");
-    setIsLoggedIn(!!token);
-  }, [location]);
 
   useEffect(() => {
     const authPages = ["/forgot-password", "/reset-password", "/verify-email"];
     if (authPages.includes(location.pathname)) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect -- route changes close the modal
       setIsLoginOpen(false);
     }
   }, [location.pathname]);
