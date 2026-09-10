@@ -1,6 +1,10 @@
-# IWM Airline Ticket — Monorepo
+# FlyQM API
 
-This repository contains the backend API for the IWM Airline Ticket booking system.
+FastAPI service for FlyQM authentication, flight search, bookings, pricing, and airline data.
+
+## Product repository
+
+This service is also maintained as the [`api`](https://github.com/Khant26/flyqm/tree/api) branch of the combined [FlyQM repository](https://github.com/Khant26/flyqm). The original repository is preserved.
 
 Quick links:
 - API documentation: [docs/API.md](docs/API.md)
@@ -55,4 +59,3 @@ PYTHONPATH=backend DATABASE_URL=sqlite:///./test.db SECRET_KEY=test TICKET_API_K
 ```
 
 The suite covers authentication security, schema validation, JWT handling, and the one-way/round-trip pricing engine. GitHub Actions also compiles the Python source and runs these tests on pushes and pull requests.
-# IWM_Airline_ticket
