@@ -1,20 +1,52 @@
-# React + Vite
+# FlyQM
 
-## Live site
+Responsive airline search and booking application for flights across Myanmar and the region.
 
-https://flyqm.com/en
+**Live:** https://flyqm.com/en
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Product branches
 
-Currently, two official plugins are available:
+| Branch | Application |
+|---|---|
+| [`main`](https://github.com/Khant26/flyqm/tree/main) | Customer booking application |
+| [`api`](https://github.com/Khant26/flyqm/tree/api) | FastAPI booking and pricing service |
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+The original component repositories remain available. The admin dashboard is intentionally kept separate.
 
-## React Compiler
+## Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- One-way, round-trip, and multi-city flight search
+- Airline and fare comparison
+- Passenger and booking workflows
+- Authentication and booking history
+- English and Myanmar localization
+- Multiple currency display
 
-## Expanding the ESLint configuration
+## Tech stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- React 19 and Vite 7
+- React Router
+- Tailwind CSS
+- Axios
+
+## Local development
+
+```bash
+npm ci
+npm run dev
+```
+
+Set `VITE_API_BASE_URL` in a local environment file when the API is not served from `/api`.
+
+## Quality checks
+
+```bash
+npm run lint
+npm run build
+```
+
+GitHub Actions runs lint and production-build checks on pushes and pull requests.
+
+## License
+
+No open-source license is currently declared. All rights are reserved unless a license is added by the repository owner.
